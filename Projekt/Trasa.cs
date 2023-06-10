@@ -1,47 +1,50 @@
-using System.Collections.Generic;
-
-public class Trasa
+namespace Projekt
 {
-    private float _dystans;
-    private float _czas;
-    private List<Lotnisko> _lotniska;
-    private string _id;
+    using System.Collections.Generic;
 
-    public Trasa(float dystans, float czas, List<Lotnisko> lotniska, string id)
+    public class Trasa
     {
-        _dystans = dystans;
-        _czas = czas;
-        _lotniska = lotniska;
-        _id = id;
-    }
+        private float _dystans;
+        private float _czas;
+        private List<Lotnisko> _lotniska;
+        private string _id;
 
-    public float GetDystans()
-    {
-        return _dystans;
-    }
+        public Trasa(float dystans, float czas, List<Lotnisko> lotniska, string id)
+        {
+            _dystans = dystans;
+            _czas = czas;
+            _lotniska = lotniska;
+            _id = id;
+        }
 
-    public List<Lotnisko> GetLotniska()
-    {
-        return _lotniska;
-    }
+        public float GetDystans()
+        {
+            return _dystans;
+        }
 
-    public void DodajLotnisko(Lotnisko lotnisko)
-    {
-        _lotniska.Add(lotnisko);
-    }
+        public List<Lotnisko> GetLotniska()
+        {
+            return _lotniska;
+        }
 
-    public void UsunLotnisko()
-    {
-        _lotniska.RemoveAt(_lotniska.Count - 1);
-    }
+        public void DodajLotnisko(Lotnisko lotnisko)
+        {
+            _lotniska.Add(lotnisko);
+        }
 
-    public float GetCzas()
-    {
-        return _czas;
-    }
+        public void UsunLotnisko()
+        {
+            _lotniska.RemoveAt(_lotniska.Count - 1);
+        }
 
-    public string GetID()
-    {
-        return _id;
+        public float GetCzas()
+        {
+            return _czas;
+        }
+
+        public string GetID()
+        {
+            return _id;
+        }
     }
 }

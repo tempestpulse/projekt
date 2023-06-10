@@ -1,28 +1,31 @@
-public class Samolot
+namespace Projekt
 {
-    private float _zasieg;
-    private string _id;
-    private int _liczbamiejsc;
-
-    public Samolot(float zasieg, string id, int liczbamiejsc)
+    public class Samolot
     {
-        _zasieg = zasieg;
-        _id = id;
-        _liczbamiejsc = liczbamiejsc;
-    }
+        private float _zasieg;
+        private string _id;
+        private int _liczbamiejsc;
 
-    public float GetZasieg()
-    {
-        return _zasieg;
-    }
+        public Samolot(float zasieg, string id, int liczbamiejsc)
+        {
+            _zasieg = zasieg;
+            _id = id;
+            _liczbamiejsc = liczbamiejsc;
+        }
 
-    public string GetId()
-    {
-        return _id;
-    }
+        public float GetZasieg()
+        {
+            return _zasieg;
+        }
 
-    public int GetLiczbamiejsc()
-    {
-        return _liczbamiejsc;
+        public string GetId()
+        {
+            return _id;
+        }
+
+        public int GetLiczbamiejsc()
+        {
+            return _liczbamiejsc;
+        }
     }
 }

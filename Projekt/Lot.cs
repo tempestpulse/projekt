@@ -1,47 +1,50 @@
-using System.Collections.Generic;
-
-public class Lot
+namespace Projekt
 {
-    private Trasa _trasa;
-    private List<Rezerwacja> _listaRezerwacji;
-    private string _rodzajLotu;
-    private Samolot _samolot;
+    using System.Collections.Generic;
 
-    public Lot(Samolot samolot, Trasa trasa, List<Rezerwacja> listaRezerwacji, string rodzajLotu)
+    public class Lot
     {
-        _trasa = trasa;
-        _listaRezerwacji = listaRezerwacji;
-        _rodzajLotu = rodzajLotu;
-        _samolot = samolot;
-    }
+        private Trasa _trasa;
+        private List<Rezerwacja> _listaRezerwacji;
+        private string _rodzajLotu;
+        private Samolot _samolot;
 
-    public List<Rezerwacja> GetRezerwacje()
-    {
-        return _listaRezerwacji;
-    }
+        public Lot(Samolot samolot, Trasa trasa, List<Rezerwacja> listaRezerwacji, string rodzajLotu)
+        {
+            _trasa = trasa;
+            _listaRezerwacji = listaRezerwacji;
+            _rodzajLotu = rodzajLotu;
+            _samolot = samolot;
+        }
 
-    public Samolot GetSamolot()
-    {
-        return _samolot;
-    }
+        public List<Rezerwacja> GetRezerwacje()
+        {
+            return _listaRezerwacji;
+        }
 
-    public Trasa GetTrasa()
-    {
-        return _trasa;
-    }
+        public Samolot GetSamolot()
+        {
+            return _samolot;
+        }
 
-    public void DodajRezerwacje(Rezerwacja rezerwacja)
-    {
-        _listaRezerwacji.Add(rezerwacja);
-    }
+        public Trasa GetTrasa()
+        {
+            return _trasa;
+        }
 
-    public void UsunRezerwacje(Rezerwacja rezerwacja)
-    {
-        _listaRezerwacji.Remove(rezerwacja);
-    }
+        public void DodajRezerwacje(Rezerwacja rezerwacja)
+        {
+            _listaRezerwacji.Add(rezerwacja);
+        }
 
-    public string GetRodzajLotu()
-    {
-        return _rodzajLotu;
+        public void UsunRezerwacje(Rezerwacja rezerwacja)
+        {
+            _listaRezerwacji.Remove(rezerwacja);
+        }
+
+        public string GetRodzajLotu()
+        {
+            return _rodzajLotu;
+        }
     }
 }
