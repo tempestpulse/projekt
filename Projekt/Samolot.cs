@@ -17,7 +17,6 @@ namespace Projekt
         {
             return _zasieg;
         }
-
         public string GetId()
         {
             return _id;

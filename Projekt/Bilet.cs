@@ -1,6 +1,6 @@
 namespace Projekt;
 
-class Bilet {
+public class Bilet {
 
     protected string miejsceOdlotu="";
     protected string miejsceDocelowe="";

@@ -1,6 +1,6 @@
 namespace Projekt;
 
-class Rezerwacja {
+public class Rezerwacja {
     private List<Bilet> bilety;
     
     public Rezerwacja()

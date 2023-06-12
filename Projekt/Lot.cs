@@ -46,5 +46,6 @@ namespace Projekt
         {
             return _rodzajLotu;
         }
+        
     }
 }
