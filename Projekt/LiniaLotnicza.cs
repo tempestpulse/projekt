@@ -9,22 +9,18 @@ namespace Projekt;
 
 public class LiniaLotnicza
 {
-    private string nazwalinii;
-    private List<Samolot> samoloty = new List<Samolot>();
-    private List<Lot> loty = new List<Lot>();
-    private List<Trasa> trasy = new List<Trasa>();
-    private List<Bilet> bilety = new List<Bilet>();
+    public string nazwalinii;
+    public List<Samolot> samoloty = new List<Samolot>();
+    public List<Lot> loty = new List<Lot>();
+    public List<Trasa> trasy = new List<Trasa>();
+    public List<Rezerwacja> bilety = new List<Rezerwacja>();
 
     public LiniaLotnicza()
     {
-        this.nazwalinii = null;
-        this.samoloty = null;
-        this.loty = null;
-        this.trasy = null;
-        this.bilety = null;
+
     }
 
-    public LiniaLotnicza(string nazwalinii, List<Samolot> samoloty, List<Lot> loty, List<Trasa> trasy, List<Bilet> bilety)
+    public LiniaLotnicza(string nazwalinii, List<Samolot> samoloty, List<Lot> loty, List<Trasa> trasy, List<Rezerwacja> bilety)
     {
         this.nazwalinii = nazwalinii;
         this.samoloty = samoloty;
@@ -39,7 +35,7 @@ public class LiniaLotnicza
     public List<Samolot> GetSamoloty() { return samoloty; }
     public List<Lot> GetLoty() { return loty; }
     public List<Trasa> GetTrasa() { return trasy; }
-    public List<Bilet> GetBilety() { return bilety; }
+    public List<Rezerwacja> GetBilety() { return bilety; }
     public void DodajSamolot(Samolot samolot)
     {
         samoloty.Add(samolot);
@@ -58,27 +54,30 @@ public class LiniaLotnicza
     }
 
 
-    public void GenerujLot(Samolot samolot, Trasa trasa, List<Rezerwacja> listaRezerwacji, string rodzajLotu)
+    public void GenerujLot(Samolot samolot, Trasa trasa, Rezerwacja listaRezerwacji, string rodzajLotu)
     {
         Lot lot = new Lot(samolot, trasa, listaRezerwacji, rodzajLotu);
         this.loty.Add(lot);
+        this.samoloty.Add(samolot);
+        this.trasy.Add(trasa);
+        this.bilety.Add(listaRezerwacji);
 
     }
     public void Zapis(string nazwa)
     {
 
 
-        string jsonStringNazwa = JsonConvert.SerializeObject(nazwalinii);
-        string jsonStringSamoloty = JsonConvert.SerializeObject(samoloty);
-        string jsonStringLoty = JsonConvert.SerializeObject(loty);
-        string jsonStringTrasy = JsonConvert.SerializeObject(trasy);
-        string jsonStringBilety = JsonConvert.SerializeObject(bilety);
+        string jsonStringNazwa = JsonConvert.SerializeObject(this.nazwalinii);
+        string jsonStringSamoloty = JsonConvert.SerializeObject(this.samoloty);
+        string jsonStringLoty = JsonConvert.SerializeObject(this.loty);
+        string jsonStringTrasy = JsonConvert.SerializeObject(this.trasy);
+        string jsonStringBilety = JsonConvert.SerializeObject(this.bilety);
 
         File.WriteAllText(nazwa + "Nazwa" + ".json", jsonStringNazwa);
-        File.WriteAllText(nazwa + "Samoloty" + ".json", jsonStringNazwa);
-        File.WriteAllText(nazwa + "Loty" + ".json", jsonStringNazwa);
-        File.WriteAllText(nazwa + "Trasy" + ".json", jsonStringNazwa);
-        File.WriteAllText(nazwa + "Bilety" + ".json", jsonStringNazwa);
+        File.WriteAllText(nazwa + "Samoloty" + ".json", jsonStringSamoloty);
+        File.WriteAllText(nazwa + "Loty" + ".json", jsonStringLoty);
+        File.WriteAllText(nazwa + "Trasy" + ".json", jsonStringTrasy);
+        File.WriteAllText(nazwa + "Bilety" + ".json", jsonStringBilety);
 
 
     }
@@ -94,7 +93,7 @@ public class LiniaLotnicza
         json = File.ReadAllText(nazwa + "Trasy" + ".json");
         this.trasy = JsonConvert.DeserializeObject<List<Trasa>>(json);
         json = File.ReadAllText(nazwa + "Bilety" + ".json");
-        this.bilety = JsonConvert.DeserializeObject<List<Bilet>>(json);
+        this.bilety = JsonConvert.DeserializeObject<List<Rezerwacja>>(json);
 
     }
 
