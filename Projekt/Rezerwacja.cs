@@ -1,22 +1,25 @@
 namespace Projekt;
 
-public class Rezerwacja {
-    private List<Bilet> bilety;
-    
+public class Rezerwacja
+{
+    public List<Bilet> bilety;
+
     public Rezerwacja()
     {
         bilety = new List<Bilet>();
     }
 
-    public List<Bilet> getBilety(){
-        return bilety;
+    public List<Bilet> getBilety()
+    {
+        return this.bilety;
     }
-
-    public void dodajBilet(Bilet bilet){
+    public void dodajBilet(Bilet bilet)
+    {
         bilety.Add(bilet);
     }
 
-    public void usunBilet(Bilet bilet){
+    public void usunBilet(Bilet bilet)
+    {
         bilety.Remove(bilet);
     }
 }
