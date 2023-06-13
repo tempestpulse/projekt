@@ -1,13 +1,13 @@
 namespace Projekt
 {
-    using System.Collections.Generic;
+
 
     public class Trasa
     {
-        private float _dystans;
-        private float _czas;
-        private List<Lotnisko> _lotniska;
-        private string _id;
+        public float _dystans;
+        public float _czas;
+        public List<Lotnisko> _lotniska;
+        public string _id;
 
         public Trasa(float dystans, float czas, List<Lotnisko> lotniska, string id)
         {
